@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Créateur de Créatures D&D</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <h1>Créateur de Créatures D&D Personnalisées</h1>
+
+  <form id="monsterForm" enctype="multipart/form-data">
+
+    <!-- Basic Info -->
+    <label>Nom de la créature: 
+      <input type="text" name="nom" required />
+    </label><br/>
+    <label>Type de créature (ex: Humanoïde de taille M, neutre): 
+      <input type="text" name="typeCreature" required />
+    </label><br/>
+    
+    <hr/>
+
+    <!-- Defensive Stats -->
+    <label>Classe d'armure (ex: 12 (armure de cuir)): 
+      <input type="text" name="classeArmure" required />
+    </label><br/>
+    <label>Points de vie (ex: 5 (1d8 + 1)): 
+      <input type="text" name="pointsVie" required />
+    </label><br/>
+    <label>Vitesse (ex: 9 m): 
+      <input type="text" name="vitesse" required />
+    </label><br/>
+    
+    <hr/>
+
+    <!-- Ability Scores (on a single line, with scores below stat name) -->
+    <div id="abilityScores">
+      <div>
+        <label>FOR: 
+          <input type="number" name="for" value="10" required />
+        </label>
+        <label>DEX: 
+          <input type="number" name="dex" value="10" required />
+        </label>
+        <label>CON: 
+          <input type="number" name="con" value="10" required />
+        </label>
+        <label>INT: 
+          <input type="number" name="intelligence" value="10" required />
+        </label>
+        <label>SAG: 
+          <input type="number" name="sag" value="10" required />
+        </label>
+        <label>CHA: 
+          <input type="number" name="cha" value="10" required />
+        </label>
+      </div>
+    </div>
+    
+    <hr/>
+
+    <!-- Other Stats -->
+    <label>Sens: 
+      <textarea name="sens" rows="4" cols="50"></textarea>
+    </label><br/>
+    <label>Langues (ex: commun): 
+      <input type="text" name="langues" required />
+    </label><br/>
+    <label>Puissance (ex: 1 (200 PX)): 
+      <input type="text" name="puissance" required />
+    </label><br/>
+    
+    <hr/>
+    <label>Capacités: 
+      <textarea name="capacités" rows="4" cols="50"></textarea>
+    </label><br/>
+    <hr/>
+
+    <!-- Actions -->
+    <label>Actions (décrivez vos actions, par exemple une action d'attaque):<br/>
+      <textarea name="actions" rows="4" cols="50" placeholder="Nom de l'action. Attaque au corps à corps avec une arme : +2 au toucher, allonge 1,50 m, une cible. Touché : 5 (1d6 + 2) dégâts tranchants."></textarea>
+    </label><br/><br/>
+
+    <!-- Image Upload -->
+    <label>Image: 
+      <input type="file" name="image" accept="image/*"/>
+    </label><br/><br/>
+
+    <!-- Optional extra fields -->
+    <div id="extraFields"></div>
+    <button type="button" onclick="addField()">Ajouter un champ personnalisé</button><br/><br/>
+
+    <button type="submit">Enregistrer la créature</button>
+  </form>
+
+  <!-- Preview area -->
+  <section id="previewSection">
+    <h2>Aperçu du Stat Block</h2>
+    <div id="statBlock"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
